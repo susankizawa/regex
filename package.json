@@ -1,0 +1,29 @@
+{
+  "name": "regex",
+  "version": "1.0.0",
+  "description": "Site for testing regular expressions.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/susankizawa/regex.git"
+  },
+  "keywords": [
+    "regex",
+    "javascript",
+    "express",
+    "html"
+  ],
+  "author": "Susan K. Izawa",
+  "license": "(MIT)",
+  "bugs": {
+    "url": "https://github.com/susankizawa/regex/issues"
+  },
+  "homepage": "https://github.com/susankizawa/regex#readme",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
