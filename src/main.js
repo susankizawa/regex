@@ -1,18 +1,37 @@
-const textInput = document.getElementById('textInput');
-const regexInput = document.getElementById('regexInput');
-const outputDiv = document.getElementById('output');
+function loadPage(page, hasScript = false) {
+    fetch(`pages/${page}.html`)
+    .then(response => response.text())
+    .then(data => {
+        // Sets left-content to selected page content
+        document.getElementById('left-content').innerHTML = data;
+        
+        // Imports page javascript, if it has a script
+        if (hasScript) {
+            import(`../src/${page}.js`)
+            .then((module) => { module.setup() });
+        }
 
-function updateOutput() {
-    const text = textInput.value;
-    const regexString = regexInput.value;
-    try {
-    const regex = new RegExp(regexString, 'g');
-    const matches = text.match(regex);
-    outputDiv.innerHTML = matches ? matches.join('<br>') : 'No matches found';
-    } catch (error) {
-    outputDiv.innerHTML = `Error: ${error.message}`;
-    }
+        // Unsets previous active menu items
+        let menuItems = document.querySelectorAll('.right-menu menu li');
+        menuItems.forEach(item => {
+            item.classList.remove('active');
+        });
+
+        // Sets selected menu item as active
+        document.getElementById(page).parentElement.classList.add('active');
+    })
+    .catch(error => {
+        document.getElementById('content').innerHTML = '<p>Error loading page.</p>';
+    });
 }
 
-textInput.addEventListener('input', updateOutput);
-regexInput.addEventListener('input', updateOutput);
+// Loads this page by default
+loadPage('regextester', true);
+
+document.getElementById('helloworld').onclick = () => {
+    loadPage('helloworld');
+}
+
+document.getElementById('regextester').onclick = () => {
+    loadPage('regextester', true);
+}
