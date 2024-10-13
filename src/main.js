@@ -43,3 +43,7 @@ document.getElementById('texthighlighter').onclick = () => {
 document.getElementById('textsubstitution').onclick = () => {
     loadPage('textsubstitution', true);
 }
+
+document.getElementById('emailvalidation').onclick = () => {
+    loadPage('emailvalidation', true);
+}
