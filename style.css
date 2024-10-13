@@ -16,6 +16,10 @@ header {
     text-align: start;
 }
 
+#home {
+    cursor: pointer;
+}
+
 /* Main container */
 .container {
     display: flex;
@@ -31,6 +35,11 @@ h3 {
     margin: 0.5rem 0;
 }
 
+/* Styling for paragraphs */
+p {
+    padding: 5px;
+}
+
 hr {
     margin: 0.5rem 0;
 }
@@ -40,6 +49,22 @@ hr {
     background-color: #f4f4f4;
     padding: 1rem;
     overflow-y: auto;
+}
+
+.left-content .textInput{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.left-content .output {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f4f4f9;
+    border-radius: 4px;
+    border: 1px solid #ddd;
 }
 
 .right-menu {

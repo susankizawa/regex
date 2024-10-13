@@ -26,12 +26,20 @@ function loadPage(page, hasScript = false) {
 }
 
 // Loads this page by default
-loadPage('regextester', true);
+loadPage('helloworld');
 
-document.getElementById('helloworld').onclick = () => {
+document.getElementById('home').onclick = () => {
     loadPage('helloworld');
 }
 
 document.getElementById('regextester').onclick = () => {
     loadPage('regextester', true);
+}
+
+document.getElementById('texthighlighter').onclick = () => {
+    loadPage('texthighlighter', true);
+}
+
+document.getElementById('textsubstitution').onclick = () => {
+    loadPage('textsubstitution', true);
 }
