@@ -16,7 +16,7 @@ export function setup() {
         // Finds and sets new cursor position
         let nextCursorPos = nextDigit(formattedInput, cursorPos, isBackspace);
 
-        cpfInput.setSelectionRange(nextCursorPos + 1, nextCursorPos + 1);
+        cpfInput.setSelectionRange(nextCursorPos, nextCursorPos);
     });
 }
 
@@ -37,22 +37,19 @@ function formatCpfNumber(cpfString) {
 }
 
 function nextDigit(textInput, cursorPos, isBackspace) {
-    if(isBackspace) {
-        // If backspace was used, gets the position of the first digit that comes before the current cursor position
-        for (let i = cursorPos - 1; i > 0; i--) {
-            if(/\d/.test(textInput[i])) {
-                return i;
-            }
-        }
-    }
-    else {
-        // If backspace was not used, gets the position of the first digit that comes after the current cursor position
-        for (let i = cursorPos - 1; i < textInput.length; i++) {
-            if(/\d/.test(textInput[i])) {
-                return i;
-            }
-        }
+    // Returns current cursor position if the position that comes before the current one is a digit
+    // 0| - Returns current cursor position
+    // .| - Executes rest of the code
+    if(/\d/.test(textInput[cursorPos - 1])) {
+        return cursorPos;
     }
 
-    return cursorPos;
+    if(isBackspace) {
+        // If user used backspace returns current position subtracted by one
+        return cursorPos - 1;
+    }
+    else {
+        // If user didn't use backspace returns current position plus one
+        return cursorPos + 1;
+    }
 }
