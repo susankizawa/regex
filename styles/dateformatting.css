@@ -1,0 +1,25 @@
+#dateTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+#dateTable th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#dateTable th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Alternating row colors */
+#dateTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#dateTable tr:nth-child(odd) {
+    background-color: #e0e0e0;
+}

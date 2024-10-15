@@ -55,3 +55,7 @@ document.getElementById('phonenumberformatting').onclick = () => {
 document.getElementById('cpfformatting').onclick = () => {
     loadPage('cpfformatting', true);
 }
+
+document.getElementById('dateformatting').onclick = () => {
+    loadPage('dateformatting', true);
+}
