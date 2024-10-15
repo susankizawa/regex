@@ -51,3 +51,7 @@ document.getElementById('emailvalidation').onclick = () => {
 document.getElementById('phonenumberformatting').onclick = () => {
     loadPage('phonenumberformatting', true);
 }
+
+document.getElementById('cpfformatting').onclick = () => {
+    loadPage('cpfformatting', true);
+}

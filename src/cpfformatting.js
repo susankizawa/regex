@@ -1,13 +1,13 @@
 export function setup() {
-    const phoneInput = document.getElementById('phoneInput');
+    const cpfInput = document.getElementById('cpfInput');
 
-    phoneInput.addEventListener('input', ev => {
+    cpfInput.addEventListener('input', ev => {
         // Saves cursor position
         let cursorPos = ev.target.selectionStart;
 
-        let formattedInput = formatPhoneNumber(ev.target.value);
+        let formattedInput = formatCpfNumber(ev.target.value);
 
-        // Sets phone number input to formatted input
+        // Sets cpf number input to formatted input
         ev.target.value = formattedInput;
 
         // Checks if user used backspace or not
@@ -15,29 +15,22 @@ export function setup() {
 
         // Finds and sets new cursor position
         let nextCursorPos = nextDigit(formattedInput, cursorPos, isBackspace);
-        // If the current cursor position is in the +55 part, puts the cursor after because 
-        // that part is supposed to be fixed because phone numbers from other countries is 
-        // beyond the scope of this project
-        if(nextCursorPos < 3) {
-            nextCursorPos = 3;
-        }
 
-        phoneInput.setSelectionRange(nextCursorPos + 1, nextCursorPos + 1);
+        cpfInput.setSelectionRange(nextCursorPos + 1, nextCursorPos + 1);
     });
 }
 
-function formatPhoneNumber(phoneNumberString) {
-    // Extract phone number digits and apply regex
+function formatCpfNumber(cpfString) {
+    // Extract cpf digits and apply regex
     // Also makes sure the input is treated as a string with "" + at the start
-    const digits = "" + phoneNumberString.replace(/\D/g, '');
+    const digits = "" + cpfString.replace(/\D/g, '');
 
-    const match = digits.match(/(5{0,2})?(\d{0,2})?(\d{0,5})?(\d{0,4})?/);
+    const match = digits.match(/(\d{0,3})?(\d{0,3})?(\d{0,3})?(\d{0,2})?/);
 
-    return ["+", 
-            "55",
-            match[2] ? " " : "", 
+    return [match[1],
+            match[2] ? "." : "", 
             match[2],
-            match[3] ? " " : "", 
+            match[3] ? "." : "", 
             match[3], 
             match[4] ? "-" : "", 
             match[4]].join("");
