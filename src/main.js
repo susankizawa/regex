@@ -47,3 +47,7 @@ document.getElementById('textsubstitution').onclick = () => {
 document.getElementById('emailvalidation').onclick = () => {
     loadPage('emailvalidation', true);
 }
+
+document.getElementById('phonenumberformatting').onclick = () => {
+    loadPage('phonenumberformatting', true);
+}
