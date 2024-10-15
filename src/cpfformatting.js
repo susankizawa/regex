@@ -14,9 +14,9 @@ export function setup() {
         let isBackspace = (ev?.data == null) ? true : false;
 
         // Finds and sets new cursor position
-        let nextCursorPos = nextDigit(formattedInput, cursorPos, isBackspace);
+        let nextCursorPos = nextDigit(cursorPos, isBackspace);
 
-        cpfInput.setSelectionRange(nextCursorPos + 1, nextCursorPos + 1);
+        cpfInput.setSelectionRange(nextCursorPos, nextCursorPos);
     });
 }
 
@@ -36,23 +36,11 @@ function formatCpfNumber(cpfString) {
             match[4]].join("");
 }
 
-function nextDigit(textInput, cursorPos, isBackspace) {
+function nextDigit(cursorPos, isBackspace) {
     if(isBackspace) {
-        // If backspace was used, gets the position of the first digit that comes before the current cursor position
-        for (let i = cursorPos - 1; i > 0; i--) {
-            if(/\d/.test(textInput[i])) {
-                return i;
-            }
-        }
+        return cursorPos;
     }
     else {
-        // If backspace was not used, gets the position of the first digit that comes after the current cursor position
-        for (let i = cursorPos - 1; i < textInput.length; i++) {
-            if(/\d/.test(textInput[i])) {
-                return i;
-            }
-        }
+        return cursorPos + 1;
     }
-
-    return cursorPos;
 }
