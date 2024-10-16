@@ -63,3 +63,11 @@ document.getElementById('dateformatting').onclick = () => {
 document.getElementById('passwordvalidation').onclick = () => {
     loadPage('passwordvalidation', true);
 }
+
+document.getElementById('urlextractor').onclick = () => {
+    loadPage('urlextractor', true);
+}
+
+document.getElementById('hashtagextractor').onclick = () => {
+    loadPage('hashtagextractor', true);
+}
