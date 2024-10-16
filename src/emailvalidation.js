@@ -40,10 +40,7 @@ function showMessage(index) {
     const incorrectCredentialsMessage = document.getElementById('incorrectCredentialsMessage');
     const successLoginMessage = document.getElementById('successLoginMessage');
 
-    // Hides all 3 potential messages
-    emailInvalidMessage.hidden = true;
-    successLoginMessage.hidden = true;
-    incorrectCredentialsMessage.hidden = true;
+    hideMessages();    
 
     switch(index) {
         case 0:
@@ -58,4 +55,14 @@ function showMessage(index) {
         default:
             console.log("Message not found");
     }
+}
+
+function hideMessages() {
+    const emailInvalidMessage = document.getElementById('emailInvalidMessage');
+    const incorrectCredentialsMessage = document.getElementById('incorrectCredentialsMessage');
+    const successLoginMessage = document.getElementById('successLoginMessage');
+
+    emailInvalidMessage.hidden = true;
+    successLoginMessage.hidden = true;
+    incorrectCredentialsMessage.hidden = true;
 }

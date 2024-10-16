@@ -59,3 +59,7 @@ document.getElementById('cpfformatting').onclick = () => {
 document.getElementById('dateformatting').onclick = () => {
     loadPage('dateformatting', true);
 }
+
+document.getElementById('passwordvalidation').onclick = () => {
+    loadPage('passwordvalidation', true);
+}
