@@ -10,4 +10,4 @@ Site for testing regular expressions.
 
     ![image](https://github.com/user-attachments/assets/f5f63841-1cf3-4a0d-b0b3-47ea91cd6834)
 
-4. Click on the button to open the site in another window
+4. Click on the button to open the site in another window or just copy the URL of the site to a new tab
